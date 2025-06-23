@@ -1,4 +1,4 @@
-# README - System Nauki Gry w Szachy
+# System Nauki Gry w Szachy
 
 ## Opis Projektu
 
