@@ -1,0 +1,3 @@
+../Core/Src/led_scheduler.c:13:13:hsv_to_rgb	6
+../Core/Src/led_scheduler.c:34:6:led_scheduler_init	1
+../Core/Src/led_scheduler.c:40:6:led_scheduler_tick	7

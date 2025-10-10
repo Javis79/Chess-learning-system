@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Otwarcie włoskie",
+    "description": "Białe zaczynają klasycznym otwarciem na e4.",
+    "moves": [
+      {"piece": "PIECE_PAWN", "from": "e2", "to": "e4"},
+      {"piece": "PIECE_PAWN", "from": "e7", "to": "e5"},
+      {"piece": "PIECE_KNIGHT", "from": "g1", "to": "f3"}
+    ]
+  },
+  {
+    "name": "Obrona sycylijska",
+    "description": "Białe zaczynają 1.e4, czarne odpowiadają 1...c5.",
+    "moves": [
+      {"piece": "PIECE_PAWN", "from": "e2", "to": "e4"},
+      {"piece": "PIECE_PAWN", "from": "c7", "to": "c5"}
+    ]
+  }
+]
