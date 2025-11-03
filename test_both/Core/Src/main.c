@@ -26,6 +26,10 @@
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
+#include "menu.h"
+#include "chess_clock.h"
+#include "mux.h"
+
 
 
 //Załączenie bibliotek do obsługi wyświetlacza + ARGB
@@ -106,59 +110,142 @@ int main(void)
   MX_SPI2_Init();
   MX_SPI1_Init();
   ILI9341_Init();
+  Menu_Init();
+
+  //cycle_mux_channels();
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
-  led_scheduler_init();
-  lcd_scheduler_init();
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  ledchess_set_origin_top(false);
+  for (;;)
+      {
+          MenuResult r = Menu_ShowMain();
 
-  // wyczyść planszę na ciemno
-  ws2812_set_all(0,0,0);
-  leds_show_and_pause(2000);
+          if (r == MENU_RESULT_CHESS_CLOCK) {
+        	  ChessClock_SetInitialTime(5 * 60 * 1000); // 5 minut (opcjonalnie)
+        	  ChessClock_Run(); // wraca po BACK; przywraca orientację menu
+          }
+          else if (r == MENU_RESULT_OPENINGS) {
+              // TODO: podmenu wyboru otwarc
+				ILI9341_Fill_Screen(BLACK);
+				ILI9341_Draw_Text("TODO: Otwarcia", 10, 10, WHITE, 2, BLACK);
+				led_scheduler_init();
+				ledchess_set_origin_top(false);
 
-  // 1) Ruch pionkiem białym: e2 -> e4
-  ledchess_draw_move(PIECE_PAWN, "e2", "e4", 0,255,0, LEDCHESS_WHITE);
-  leds_show_and_pause(2000);
-  ws2812_set_all(0,0,0);
-  leds_show_and_pause(50);
+				// wyczyść planszę na ciemno
+				ws2812_set_all(0,0,0);
+				leds_show_and_pause(2000);
 
-  // 2) Skoczek: g1 -> f3
-  ledchess_draw_move(PIECE_KNIGHT, "g1", "f3", 255,128,0, LEDCHESS_WHITE);
-  leds_show_and_pause(2000);
-  ws2812_set_all(0,0,0);
-  leds_show_and_pause(50);
+				// 1) Ruch pionkiem białym: e2 -> e4
+				ledchess_draw_move(PIECE_PAWN, "e2", "e4", 0,255,0, LEDCHESS_WHITE);
+				leds_show_and_pause(2000);
+				ws2812_set_all(0,0,0);
+				leds_show_and_pause(50);
 
-  // 3) Goniec: c1 -> h6
-  ledchess_draw_move(PIECE_BISHOP, "c1", "h6", 0,128,255, LEDCHESS_WHITE);
-  leds_show_and_pause(2000);
-  ws2812_set_all(0,0,0);
-  leds_show_and_pause(50);
+				// 2) Skoczek: g1 -> f3
+				ledchess_draw_move(PIECE_KNIGHT, "g1", "f3", 255,128,0, LEDCHESS_WHITE);
+				leds_show_and_pause(2000);
+				ws2812_set_all(0,0,0);
+				leds_show_and_pause(50);
 
-  // 4) Wieża: a1 -> a8
-  ledchess_draw_move(PIECE_ROOK, "a1", "a8", 255,0,0, LEDCHESS_WHITE);
-  leds_show_and_pause(2000);
-  ws2812_set_all(0,0,0);
-  leds_show_and_pause(50);
+				// 3) Goniec: c1 -> h6
+				ledchess_draw_move(PIECE_BISHOP, "c1", "h6", 0,128,255, LEDCHESS_WHITE);
+				leds_show_and_pause(2000);
+				ws2812_set_all(0,0,0);
+				leds_show_and_pause(50);
 
-  // 5) Hetman: d1 -> h5 (po skosie)
-  ledchess_draw_move(PIECE_QUEEN, "d1", "h5", 255,0,255, LEDCHESS_WHITE);
-  leds_show_and_pause(2000);
-  ws2812_set_all(0,0,0);
-  leds_show_and_pause(50);
+				// 4) Wieża: a1 -> a8
+				ledchess_draw_move(PIECE_ROOK, "a1", "a8", 255,0,0, LEDCHESS_WHITE);
+				leds_show_and_pause(2000);
+				ws2812_set_all(0,0,0);
+				leds_show_and_pause(50);
 
-  // 6) Król: e1 -> e2 (tylko pole docelowe)
-  ledchess_draw_move(PIECE_KING, "e1", "e2", 255,255,0, LEDCHESS_WHITE);
-  leds_show_and_pause(2000);
-  ws2812_set_all(0,0,0);
-  leds_show_and_pause(50);
+				// 5) Hetman: d1 -> h5 (po skosie)
+				ledchess_draw_move(PIECE_QUEEN, "d1", "h5", 255,0,255, LEDCHESS_WHITE);
+				leds_show_and_pause(2000);
+				ws2812_set_all(0,0,0);
+				leds_show_and_pause(50);
+
+				// 6) Król: e1 -> e2 (tylko pole docelowe)
+				ledchess_draw_move(PIECE_KING, "e1", "e2", 255,255,0, LEDCHESS_WHITE);
+				leds_show_and_pause(2000);
+				ws2812_set_all(0,0,0);
+				leds_show_and_pause(50);
+              HAL_Delay(1000);
+          }
+          else if(r == MENU_RESULT_MUX){
+        	  cycle_mux_channels();
+              ws2812_set_all(0,0,0);
+              leds_show_and_pause(50);
+          }
+          else { // MENU_RESULT_BACK
+              // wróć / zrób co chcesz
+          }
+      }
+  //led_scheduler_init();
+  //lcd_scheduler_init();
+//  ledchess_set_origin_top(false);
+//
+//  // wyczyść planszę na ciemno
+//  ws2812_set_all(0,0,0);
+//  leds_show_and_pause(2000);
+//
+//  // 1) Ruch pionkiem białym: e2 -> e4
+//  ledchess_draw_move(PIECE_PAWN, "e2", "e4", 0,255,0, LEDCHESS_WHITE);
+//  leds_show_and_pause(2000);
+//  ws2812_set_all(0,0,0);
+//  leds_show_and_pause(50);
+//
+//  // 2) Skoczek: g1 -> f3
+//  ledchess_draw_move(PIECE_KNIGHT, "g1", "f3", 255,128,0, LEDCHESS_WHITE);
+//  leds_show_and_pause(2000);
+//  ws2812_set_all(0,0,0);
+//  leds_show_and_pause(50);
+//
+//  // 3) Goniec: c1 -> h6
+//  ledchess_draw_move(PIECE_BISHOP, "c1", "h6", 0,128,255, LEDCHESS_WHITE);
+//  leds_show_and_pause(2000);
+//  ws2812_set_all(0,0,0);
+//  leds_show_and_pause(50);
+//
+//  // 4) Wieża: a1 -> a8
+//  ledchess_draw_move(PIECE_ROOK, "a1", "a8", 255,0,0, LEDCHESS_WHITE);
+//  leds_show_and_pause(2000);
+//  ws2812_set_all(0,0,0);
+//  leds_show_and_pause(50);
+//
+//  // 5) Hetman: d1 -> h5 (po skosie)
+//  ledchess_draw_move(PIECE_QUEEN, "d1", "h5", 255,0,255, LEDCHESS_WHITE);
+//  leds_show_and_pause(2000);
+//  ws2812_set_all(0,0,0);
+//  leds_show_and_pause(50);
+//
+//  // 6) Król: e1 -> e2 (tylko pole docelowe)
+//  ledchess_draw_move(PIECE_KING, "e1", "e2", 255,255,0, LEDCHESS_WHITE);
+//  leds_show_and_pause(2000);
+//  ws2812_set_all(0,0,0);
+//  leds_show_and_pause(50);
 
   while (1)
   {
+	  //set_mux_select(0);
     /* USER CODE END WHILE */
 	//led_scheduler_tick();
 	//lcd_scheduler_tick();
+//	  if (button1_pressed()) {
+//		  ILI9341_Fill_Screen(BLACK);  // Wyczyść ekran
+//		  ILI9341_Draw_Text("Przycisk 1", 20, 20, WHITE, 2,BLACK);  // Wypisz nazwę przycisku
+//	  } else if (button2_pressed()) {
+//		  ILI9341_Fill_Screen(BLACK);
+//		  ILI9341_Draw_Text("Przycisk 2", 20, 20, WHITE, 2, BLACK);
+//	  } else if (button3_pressed()) {
+//		  ILI9341_Fill_Screen(BLACK);
+//		  ILI9341_Draw_Text("Przycisk 3", 20, 20, WHITE, 2, BLACK);
+//	  } else if (button4_pressed()) {
+//		  ILI9341_Fill_Screen(BLACK);
+//		  ILI9341_Draw_Text("Przycisk 4", 20, 20, WHITE, 2, BLACK);
+//	          }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

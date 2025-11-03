@@ -1,0 +1,4 @@
+../Core/Src/buttons.c:10:5:button1_pressed	8	static
+../Core/Src/buttons.c:15:5:button2_pressed	8	static
+../Core/Src/buttons.c:21:5:button3_pressed	8	static
+../Core/Src/buttons.c:26:5:button4_pressed	8	static

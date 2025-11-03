@@ -30,9 +30,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/gpio.h ../Core/Inc/main.h ../Core/Inc/dma.h \
  ../Core/Inc/spi.h ../Core/Inc/tim.h ../Core/Inc/usart.h \
- ../Core/Inc/led_scheduler.h ../Core/Inc/lcd_scheduler.h \
- ../Core/Src/ILI9341_STM32_Driver.h ../Core/Src/ILI9341_GFX.h \
- ../Core/Inc/chess_pieces.h ../Core/Inc/ws2812.h
+ ../Core/Inc/menu.h ../Core/Inc/buttons.h ../Core/Inc/gpio.h \
+ ../Core/Inc/chess_clock.h ../Core/Inc/mux.h ../Core/Inc/led_scheduler.h \
+ ../Core/Inc/lcd_scheduler.h ../Core/Inc/ILI9341_STM32_Driver.h \
+ ../Core/Inc/ILI9341_GFX.h ../Core/Inc/chess_pieces.h \
+ ../Core/Inc/ws2812.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -69,9 +71,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/spi.h:
 ../Core/Inc/tim.h:
 ../Core/Inc/usart.h:
+../Core/Inc/menu.h:
+../Core/Inc/buttons.h:
+../Core/Inc/gpio.h:
+../Core/Inc/chess_clock.h:
+../Core/Inc/mux.h:
 ../Core/Inc/led_scheduler.h:
 ../Core/Inc/lcd_scheduler.h:
-../Core/Src/ILI9341_STM32_Driver.h:
-../Core/Src/ILI9341_GFX.h:
+../Core/Inc/ILI9341_STM32_Driver.h:
+../Core/Inc/ILI9341_GFX.h:
 ../Core/Inc/chess_pieces.h:
 ../Core/Inc/ws2812.h:

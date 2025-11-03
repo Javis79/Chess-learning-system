@@ -1,0 +1,8 @@
+../Core/Src/menu.c:39:20:label_for_index	16	static
+../Core/Src/menu.c:55:16:edge	24	static
+../Core/Src/menu.c:62:13:ui_draw_title	24	static
+../Core/Src/menu.c:70:13:ui_draw_item	32	static
+../Core/Src/menu.c:81:13:ui_draw_frame	8	static
+../Core/Src/menu.c:92:6:Menu_Init	4	static
+../Core/Src/menu.c:97:16:read_buttons_once	40	static
+../Core/Src/menu.c:126:12:Menu_ShowMain	24	static

@@ -1,5 +1,5 @@
 Core/Src/lcd_scheduler.o: ../Core/Src/lcd_scheduler.c \
- ../Core/Inc/lcd_scheduler.h ../Core/Src/ILI9341_STM32_Driver.h \
+ ../Core/Inc/lcd_scheduler.h ../Core/Inc/ILI9341_STM32_Driver.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -29,9 +29,9 @@ Core/Src/lcd_scheduler.o: ../Core/Src/lcd_scheduler.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Src/ILI9341_GFX.h
+ ../Core/Inc/ILI9341_GFX.h
 ../Core/Inc/lcd_scheduler.h:
-../Core/Src/ILI9341_STM32_Driver.h:
+../Core/Inc/ILI9341_STM32_Driver.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -61,4 +61,4 @@ Core/Src/lcd_scheduler.o: ../Core/Src/lcd_scheduler.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-../Core/Src/ILI9341_GFX.h:
+../Core/Inc/ILI9341_GFX.h:

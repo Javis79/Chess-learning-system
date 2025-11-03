@@ -1,0 +1,8 @@
+../Core/Src/chess_clock.c:35:19:clampi	24	static
+../Core/Src/chess_clock.c:36:20:ms_to_str	32	static
+../Core/Src/chess_clock.c:49:13:draw_char_box	88	static
+../Core/Src/chess_clock.c:71:13:draw_halves_bg	40	static
+../Core/Src/chess_clock.c:84:6:draw_time_single	144	static
+../Core/Src/chess_clock.c:141:16:edge	24	static
+../Core/Src/chess_clock.c:148:6:ChessClock_SetInitialTime	16	static
+../Core/Src/chess_clock.c:150:6:ChessClock_Run	72	static

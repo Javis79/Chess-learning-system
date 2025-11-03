@@ -1,0 +1,5 @@
+../Core/Src/mux.c:14:23:mux4051_read_pc0	1
+../Core/Src/mux.c:18:20:mux4051_settle	2
+../Core/Src/mux.c:26:5:mux_2_state	1
+../Core/Src/mux.c:33:20:mux4051_select	1
+../Core/Src/mux.c:41:6:cycle_mux_channels	4
