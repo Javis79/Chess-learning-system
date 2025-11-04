@@ -29,7 +29,7 @@ Core/Src/chess_clock.o: ../Core/Src/chess_clock.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/ILI9341_STM32_Driver.h ../Core/Inc/ILI9341_GFX.h
+ ../Core/Src/ILI9341_STM32_Driver.h ../Core/Src/ILI9341_GFX.h
 ../Core/Inc/chess_clock.h:
 ../Core/Inc/buttons.h:
 ../Core/Inc/gpio.h:
@@ -63,5 +63,5 @@ Core/Src/chess_clock.o: ../Core/Src/chess_clock.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-../Core/Inc/ILI9341_STM32_Driver.h:
-../Core/Inc/ILI9341_GFX.h:
+../Core/Src/ILI9341_STM32_Driver.h:
+../Core/Src/ILI9341_GFX.h:

@@ -23,6 +23,14 @@
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
+#define CS_TFT_GPIO_Port   GPIOB
+#define CS_TFT_Pin         GPIO_PIN_6
+#define DC_TFT_GPIO_Port   GPIOA
+#define DC_TFT_Pin         GPIO_PIN_9
+#define RST_TFT_GPIO_Port  GPIOC
+#define RST_TFT_Pin        GPIO_PIN_7
+#define CS_SD_GPIO_Port    GPIOA
+#define CS_SD_Pin          GPIO_PIN_10
 
 SPI_HandleTypeDef hspi1;
 DMA_HandleTypeDef hdma_spi1_tx;

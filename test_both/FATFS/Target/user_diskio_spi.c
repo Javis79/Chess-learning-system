@@ -35,11 +35,21 @@ extern SPI_HandleTypeDef SD_SPI_HANDLE;
 /* Function prototypes */
 
 //(Note that the _256 is used as a mask to clear the prescalar bits as it provides binary 111 in the correct position)
-#define FCLK_SLOW() { MODIFY_REG(SD_SPI_HANDLE.Instance->CR1, SPI_BAUDRATEPRESCALER_256, SPI_BAUDRATEPRESCALER_128); }	/* Set SCLK = slow, approx 280 KBits/s*/
-#define FCLK_FAST() { MODIFY_REG(SD_SPI_HANDLE.Instance->CR1, SPI_BAUDRATEPRESCALER_256, SPI_BAUDRATEPRESCALER_8); }	/* Set SCLK = fast, approx 4.5 MBits/s */
+#define FCLK_SLOW() do {                                           \
+    __HAL_SPI_DISABLE(&SD_SPI_HANDLE);                             \
+    MODIFY_REG(SD_SPI_HANDLE.Instance->CR1, SPI_CR1_BR, SPI_BAUDRATEPRESCALER_256); \
+    __HAL_SPI_ENABLE(&SD_SPI_HANDLE);                              \
+} while(0)
 
-#define CS_HIGH()	{HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);}
-#define CS_LOW()	{HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);}
+#define FCLK_FAST() do {                                           \
+    __HAL_SPI_DISABLE(&SD_SPI_HANDLE);                             \
+    MODIFY_REG(SD_SPI_HANDLE.Instance->CR1, SPI_CR1_BR, SPI_BAUDRATEPRESCALER_8);   \
+    __HAL_SPI_ENABLE(&SD_SPI_HANDLE);                              \
+} while(0)
+
+
+#define CS_HIGH()	{HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);}
+#define CS_LOW()	{HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);}
 
 /*--------------------------------------------------------------------------
 
