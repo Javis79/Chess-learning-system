@@ -4,6 +4,14 @@
 	(generator_version "9.0")
 	(uuid "b848543c-2d37-4172-a529-a66f85d3d00f")
 	(paper "A4")
+	(title_block
+		(title "Detekcja pionków - demultipleksery i kontaktrony")
+		(date "2025-11-12")
+		(rev "1")
+		(company "AGH")
+		(comment 1 "Autor: Krystian Bajerski")
+		(comment 2 "Promotor: dr inż. Agnieszka Dąbrowska-Boruch")
+	)
 	(lib_symbols
 		(symbol "74HC4051D_653:74HC4051D_653"
 			(pin_names
