@@ -524,7 +524,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "./",
+      "plot": "/home/krystian/Desktop/pcb_uc_files_2/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
