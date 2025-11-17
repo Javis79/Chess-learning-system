@@ -1,0 +1,12 @@
+Id;Designator;Footprint;Quantity;Designation;Supplier and ref
+1;C67;CP_Radial_D4.0mm_P2.00mm;1;100nF;
+2;U10;TFT-320x240;1;TFT_320x240;
+3;C78,C79,C76,C77;C_0805_2012Metric_Pad1.18x1.45mm_HandSolder;4;100nF;
+4;SW76,SW74,SW75,SW73;SW_TS02-66-60-BK-100-LCR-D;4;SW_DPST;
+5;J4,J5;PinHeader_1x04_P2.54mm_Horizontal;2;Conn_01x04_Pin;
+6;C66;CP_Radial_D4.0mm_P2.00mm;1;22uF;
+7;J1;BarrelJack_Horizontal;1;Barrel_Jack_Switch;
+8;J7;PinHeader_1x01_P2.54mm_Vertical;1;Conn_01x01_Pin;
+9;U11;ST_NUCLEO-F401RE;1;NUCLEO-F401RE;
+10;J2,J3;PinHeader_1x04_P2.54mm_Vertical;2;Conn_01x04_Pin;
+11;J6;PinHeader_1x03_P2.54mm_Vertical;1;Conn_01x03_Pin;
